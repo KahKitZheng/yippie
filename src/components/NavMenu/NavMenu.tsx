@@ -24,7 +24,7 @@ export default function NavMenu(props: NavMenuProps) {
             </NavLink>
           </li>
           <li>
-            <NavLink className="font-bold" to="/report/1">
+            <NavLink className="font-bold" to="/reports">
               Mijn verslagen
             </NavLink>
           </li>
