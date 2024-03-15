@@ -11,9 +11,11 @@ export default function NavMenu(props: NavMenuProps) {
 
   return (
     <header className="sticky top-0 z-20 w-full border-b border-b-slate-200 bg-white">
-      <nav className="mx-auto flex items-center justify-between gap-4 p-3 sm:px-5 lg:w-[700px] lg:px-0 lg:py-5">
+      <nav className="mx-auto flex items-center justify-between gap-4 p-3 sm:px-5 lg:w-[700px] lg:px-0">
         <NavLink to="/">
-          <h1 className="text-xl font-bold sm:text-3xl">Yippie</h1>
+          <h1 className="font-['Kalam'] text-xl font-bold sm:text-3xl">
+            Yippie!
+          </h1>
         </NavLink>
         <ul className="hidden gap-5 sm:flex">
           <li>
