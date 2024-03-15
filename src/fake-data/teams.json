@@ -1,0 +1,165 @@
+[
+  {
+    "name": "Team Staf",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "name": "Team Opleiding & advies",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "name": "Team Product",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jill Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jack Doe",
+        "role": "user"
+      },
+      {
+        "name": "John Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jill Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jack Doe",
+        "role": "user"
+      },
+      {
+        "name": "John Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "name": "Team Development",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jill Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jack Doe",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "name": "Team Customer Experience",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "name": "Team Sales",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "name": "Team Marketing",
+    "members": [
+      {
+        "name": "John Doe",
+        "role": "manager"
+      },
+      {
+        "name": "Jane Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jim Doe",
+        "role": "user"
+      },
+      {
+        "name": "Jill Doe",
+        "role": "user"
+      }
+    ]
+  }
+]
