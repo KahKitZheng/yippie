@@ -16,7 +16,10 @@ export default function ReportOverviewPage() {
           </Button>
         </div>
         {reportsData.map((report, index) => (
-          <div className="sm:-ml-[6.5px] sm:grid sm:grid-cols-[200px_1fr] sm:items-baseline">
+          <div
+            key={index}
+            className="sm:-ml-[6.5px] sm:grid sm:grid-cols-[200px_1fr] sm:items-baseline"
+          >
             <div className="hidden items-center gap-3 sm:flex">
               <span className="block h-3 w-3 rounded-full bg-indigo-200" />
               <p>{formatLocalDate(new Date())}</p>

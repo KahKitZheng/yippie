@@ -9,9 +9,9 @@ export default function TeamsPage() {
           <div key={team.name}>
             <h2 className="mb-2 text-2xl font-bold">{team.name}</h2>
             <ul className="grid grid-cols-2 gap-2">
-              {team.members.map((member) => (
+              {team.members.map((member, index) => (
                 <li
-                  key={member.name}
+                  key={index}
                   className="rounded-md border border-slate-200 p-4"
                 >
                   <p className="text-base font-semibold">{member.name}</p>
