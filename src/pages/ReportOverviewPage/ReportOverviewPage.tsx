@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import Layout from "../../components/Layout";
 import reportsData from "../../fake-data/reports.json";
@@ -7,6 +8,8 @@ import Button from "../../components/Button/Button";
 import { formatLocalDate } from "../../utils";
 
 export default function ReportOverviewPage() {
+  const [newTemplatePopup, setNewTemplatePopup] = useState(false);
+
   return (
     <Layout>
       <div className="grid gap-4 border-l-slate-200 py-12 sm:border-l">
@@ -29,6 +32,11 @@ export default function ReportOverviewPage() {
           </div>
         ))}
       </div>
+
+      <NewReportPopup
+        isOpen={newTemplatePopup}
+        onClose={() => setNewTemplatePopup(false)}
+      />
     </Layout>
   );
 }
