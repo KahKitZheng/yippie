@@ -74,7 +74,7 @@ export default function ReportCard(props: ReportCardProps) {
   }, []);
 
   return (
-    <div className="group rounded-md border border-slate-200 p-3 hover:border-indigo-700 hover:bg-indigo-50 sm:p-4">
+    <div className="group rounded-md border border-slate-200 bg-white p-3 hover:border-indigo-700 hover:bg-indigo-50 sm:p-4">
       <div className="flex items-baseline justify-between sm:gap-4">
         <div>
           <small className="text-slate-600 sm:hidden">

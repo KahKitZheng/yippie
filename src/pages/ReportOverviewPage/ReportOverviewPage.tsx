@@ -1,6 +1,7 @@
 import { FaPlus } from "react-icons/fa6";
-import reportsData from "../../fake-data/reports.json";
 import Layout from "../../components/Layout";
+import reportsData from "../../fake-data/reports.json";
+import NewReportPopup from "../../components/Popup/NewReportPopup";
 import ReportCard from "../../components/ReportCard";
 import Button from "../../components/Button/Button";
 import { formatLocalDate } from "../../utils";
@@ -8,7 +9,7 @@ import { formatLocalDate } from "../../utils";
 export default function ReportOverviewPage() {
   return (
     <Layout>
-      <div className="grid gap-4 border-l-slate-100 py-12 sm:border-l">
+      <div className="grid gap-4 border-l-slate-200 py-12 sm:border-l">
         <div className="flex justify-end gap-4">
           <Button callback={() => setNewTemplatePopup(true)}>
             <FaPlus />

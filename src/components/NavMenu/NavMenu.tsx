@@ -17,7 +17,7 @@ export default function NavMenu(props: NavMenuProps) {
             Yippie!
           </h1>
         </NavLink>
-        <ul className="hidden gap-5 sm:flex">
+        <ul className="hidden gap-8 sm:flex">
           <li>
             <NavLink className="font-bold" to="/teams">
               Teams

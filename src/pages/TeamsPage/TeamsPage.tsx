@@ -12,7 +12,7 @@ export default function TeamsPage() {
               {team.members.map((member, index) => (
                 <li
                   key={index}
-                  className="rounded-md border border-slate-200 p-4"
+                  className="rounded-md border border-slate-200 bg-white p-4"
                 >
                   <p className="text-base font-semibold">{member.name}</p>
                   <p className="text-neutral-500">{member.role}</p>
