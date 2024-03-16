@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { formatLocalDate } from "../../utils";
 
 type ReportCardProps = {
   report: any;
@@ -53,8 +54,8 @@ export default function ReportCard(props: ReportCardProps) {
       return <p>{members}</p>;
     }
 
-    return Array.from({ length: numberOfMembers }).map((_) => (
-      <div className="flex items-center gap-2">
+    return Array.from({ length: numberOfMembers }).map((_, index) => (
+      <div key={index} className="flex items-center gap-2">
         <span className="hidden h-4 w-4 place-content-center rounded-full border border-indigo-200 bg-indigo-100 p-3 text-indigo-900 sm:grid">
           J
         </span>
@@ -73,16 +74,22 @@ export default function ReportCard(props: ReportCardProps) {
   }, []);
 
   return (
-    <div className="group grid gap-4 rounded-md border border-slate-200 p-3 hover:border-indigo-700 hover:bg-indigo-50 sm:p-4">
+    <div className="group rounded-md border border-slate-200 p-3 hover:border-indigo-700 hover:bg-indigo-50 sm:p-4">
       <div className="flex items-baseline justify-between sm:gap-4">
-        <p className="text-base font-semibold">{report.name}</p>
+        <div>
+          <small className="text-slate-600 sm:hidden">
+            {formatLocalDate(new Date(report.created_at))}
+          </small>
+          <p className="text-base font-semibold">{report.name}</p>
+        </div>
         <p className="inline-flex items-center gap-2 sm:justify-end">
           <span className={`${statusStyle()} h-[10px] w-[10px] rounded-full`} />
           <span className="hidden sm:inline">{translateStatus()}</span>
         </p>
       </div>
-
-      <div className="flex items-center gap-6">{renderRelatedMembers()}</div>
+      <div className="mt-2 flex items-center gap-6">
+        {renderRelatedMembers()}
+      </div>
     </div>
   );
 }

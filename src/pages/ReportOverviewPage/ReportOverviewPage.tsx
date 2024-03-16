@@ -3,6 +3,7 @@ import reportsData from "../../fake-data/reports.json";
 import Layout from "../../components/Layout";
 import ReportCard from "../../components/ReportCard";
 import Button from "../../components/Button/Button";
+import { formatLocalDate } from "../../utils";
 
 export default function ReportOverviewPage() {
   return (
@@ -18,7 +19,7 @@ export default function ReportOverviewPage() {
           <div className="sm:-ml-[6.5px] sm:grid sm:grid-cols-[200px_1fr] sm:items-baseline">
             <div className="hidden items-center gap-3 sm:flex">
               <span className="block h-3 w-3 rounded-full bg-indigo-200" />
-              <p>{new Date().toLocaleDateString().replace(/\//g, "-")}</p>
+              <p>{formatLocalDate(new Date())}</p>
             </div>
             <ReportCard key={index} report={report} />
           </div>
