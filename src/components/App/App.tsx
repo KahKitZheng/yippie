@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../../pages/HomePage";
 import ReportOverViewPage from "../../pages/ReportOverviewPage";
-import TeamsPage from "../../pages/TeamsPage";
 import ReportPage from "../../pages/ReportPage";
+import TeamsPage from "../../pages/TeamsPage";
 import PageNotFound from "../../pages/404/PageNotFound";
 
 function App() {
