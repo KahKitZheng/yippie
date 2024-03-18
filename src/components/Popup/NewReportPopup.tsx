@@ -1,7 +1,7 @@
-import { FaPlus } from "react-icons/fa6";
 import Button from "../Button/Button";
 import Popup from "./Popup";
-import { useLocation, useNavigate } from "react-router-dom";
+import { FaPlus } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 type NewReportPopupProps = {
   isOpen: boolean;
