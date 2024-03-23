@@ -9,7 +9,6 @@ import Document from "@tiptap/extension-document";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
 import "./TipTap.scss";
-import { useEffect } from "react";
 
 type TipTapProps = {
   variant: "editor" | "editor-title";
@@ -29,7 +28,7 @@ export default function TipTap(props: TipTapProps) {
   } = props;
 
   const editor = useEditor({
-    content: "",
+    content: Object.keys(content).length === 0 ? "" : content,
     editable: isEditing,
     extensions: [
       StarterKit.configure({
@@ -47,11 +46,11 @@ export default function TipTap(props: TipTapProps) {
       }),
     ],
     onUpdate: ({ editor }) => {
-      if (updateContent === undefined) {
+      if (typeof updateContent !== "function") {
         return;
+      } else {
+        return updateContent(editor?.getJSON());
       }
-
-      updateContent(editor?.getJSON());
     },
     editorProps: {
       attributes: {
@@ -59,14 +58,6 @@ export default function TipTap(props: TipTapProps) {
       },
     },
   });
-
-  useEffect(() => {
-    if (Object.keys(content).length === 0) {
-      return;
-    }
-
-    editor?.commands.setContent(content);
-  }, [content, editor]);
 
   return (
     <>

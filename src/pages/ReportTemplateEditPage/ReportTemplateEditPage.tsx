@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Layout from "../../components/Layout";
 import TipTap from "../../components/TipTap";
+import { useState } from "react";
 import { JSONContent } from "@tiptap/react";
 import { FaGripVertical, FaPlus, FaXmark } from "react-icons/fa6";
 import { randomId } from "../../utils";
@@ -11,54 +11,55 @@ type ReportData = {
   answer: { placeholder: string; data: JSONContent };
 };
 
-const baseTemplate: ReportData[] = [
-  {
-    id: "z3pjWB6Utn",
-    question: {
-      placeholder: "Template name",
-      data: {} as JSONContent,
-    },
-    answer: {
-      placeholder: "",
-      data: {} as JSONContent,
-    },
-  },
-  {
-    id: "khAN2qUjMb",
-    question: {
-      placeholder: "What’s the best way to waste time?",
-      data: {} as JSONContent,
-    },
-    answer: {
-      placeholder: "",
-      data: {} as JSONContent,
-    },
-  },
-  {
-    id: "fasKdyHh3c",
-    question: {
-      placeholder: "What’s your favorite playlist?",
-      data: {} as JSONContent,
-    },
-    answer: {
-      placeholder: "",
-      data: {} as JSONContent,
-    },
-  },
-  {
-    id: "mi4Vdx4dM7",
-    question: {
-      placeholder: "What is one thing you think is really overrated?",
-      data: {} as JSONContent,
-    },
-    answer: {
-      placeholder: "",
-      data: {} as JSONContent,
-    },
-  },
-];
-
 export default function ReportTemplateEditPage() {
+  // Need to place the hardcoded data inside the component, otherwise it won't reset properly
+  const baseTemplate: ReportData[] = [
+    {
+      id: "z3pjWB6Utn",
+      question: {
+        placeholder: "Template name",
+        data: {} as JSONContent,
+      },
+      answer: {
+        placeholder: "",
+        data: {} as JSONContent,
+      },
+    },
+    {
+      id: "khAN2qUjMb",
+      question: {
+        placeholder: "What’s the best way to waste time?",
+        data: {} as JSONContent,
+      },
+      answer: {
+        placeholder: "",
+        data: {} as JSONContent,
+      },
+    },
+    {
+      id: "fasKdyHh3c",
+      question: {
+        placeholder: "What’s your favorite playlist?",
+        data: {} as JSONContent,
+      },
+      answer: {
+        placeholder: "",
+        data: {} as JSONContent,
+      },
+    },
+    {
+      id: "mi4Vdx4dM7",
+      question: {
+        placeholder: "What is one thing you think is really overrated?",
+        data: {} as JSONContent,
+      },
+      answer: {
+        placeholder: "",
+        data: {} as JSONContent,
+      },
+    },
+  ];
+
   const [report, setReport] = useState(baseTemplate);
 
   function addQuestion() {
