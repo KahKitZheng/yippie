@@ -102,7 +102,7 @@ export default function NewReportPopup(props: NewReportPopupProps) {
             </ul>
           </div>
         </form>
-        <Button callback={() => navigate("/reports/1")}>
+        <Button callback={() => navigate("/template/1/edit")}>
           verslag aanmaken
         </Button>
       </div>

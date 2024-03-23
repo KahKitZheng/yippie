@@ -15,24 +15,8 @@ const baseTemplate: ReportData[] = [
   {
     id: "z3pjWB6Utn",
     question: {
-      placeholder: "Verslag naam",
-      data: {
-        type: "doc",
-        content: [
-          {
-            type: "heading",
-            attrs: {
-              level: 1,
-            },
-            content: [
-              {
-                type: "text",
-                text: "Team platform - Bila",
-              },
-            ],
-          },
-        ],
-      },
+      placeholder: "Template name",
+      data: {} as JSONContent,
     },
     answer: {
       placeholder: "",
@@ -74,10 +58,8 @@ const baseTemplate: ReportData[] = [
   },
 ];
 
-export default function ReportPage() {
+export default function ReportTemplateEditPage() {
   const [report, setReport] = useState(baseTemplate);
-
-  // console.log(randomId());
 
   function addQuestion() {
     const newQuestion: ReportData = {

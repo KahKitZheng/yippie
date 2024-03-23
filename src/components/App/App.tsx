@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../../pages/HomePage";
 import ReportOverViewPage from "../../pages/ReportOverviewPage";
-import ReportPage from "../../pages/ReportPage";
+import ReportTemplateEditPage from "../../pages/ReportTemplateEditPage";
 import TeamsPage from "../../pages/TeamsPage";
 import PageNotFound from "../../pages/404/PageNotFound";
 
@@ -12,7 +12,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/teams" element={<TeamsPage />} />
         <Route path="/reports" element={<ReportOverViewPage />} />
-        <Route path="/reports/:reportId" element={<ReportPage />} />
+        <Route
+          path="/template/:reportId/edit"
+          element={<ReportTemplateEditPage />}
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
