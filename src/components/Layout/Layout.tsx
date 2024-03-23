@@ -45,7 +45,7 @@ export default function Layout(props: LayoutProps) {
       </div>
 
       <div
-        className={`xs:w-full relative mx-auto ${includePadding ? "py-12" : ""} px-3 sm:px-8 lg:w-[700px] lg:px-0`}
+        className={`xs:w-full relative mx-auto ${includePadding ? "py-12" : ""} h-full px-3 sm:px-8 lg:w-[700px] lg:px-0`}
       >
         {children}
         {isMenuOpen && (

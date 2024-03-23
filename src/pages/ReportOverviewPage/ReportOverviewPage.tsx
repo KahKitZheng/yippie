@@ -12,7 +12,7 @@ export default function ReportOverviewPage() {
 
   return (
     <Layout>
-      <div className="grid gap-4 border-l-slate-200 py-12 sm:border-l">
+      <div className="grid h-full gap-4 border-l-slate-200 py-12 sm:border-l">
         <div className="flex justify-end gap-4">
           <Button callback={() => setNewTemplatePopup(true)}>
             <FaPlus />
