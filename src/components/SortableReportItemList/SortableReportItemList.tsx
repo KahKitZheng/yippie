@@ -24,6 +24,7 @@ import {
   restrictToFirstScrollableAncestor,
   restrictToVerticalAxis,
 } from "@dnd-kit/modifiers";
+import { AnimatePresence } from "framer-motion";
 
 type SortableReportItemProps = {
   items: ReportData[];
@@ -31,6 +32,7 @@ type SortableReportItemProps = {
   onDragEnd: React.Dispatch<React.SetStateAction<ReportData[]>>;
   updateQuestion: (index: number, content: JSONContent) => void;
   removeQuestion: (id: string) => void;
+  isAnimated: boolean;
 };
 
 export default function SortableReportItem(
@@ -79,30 +81,34 @@ export default function SortableReportItem(
       modifiers={[restrictToFirstScrollableAncestor, restrictToVerticalAxis]}
     >
       <SortableContext items={itemIds} strategy={verticalListSortingStrategy}>
-        {items.map((item) => (
-          <ReportItemEditor
-            key={item.id}
-            data={item}
-            updateQuestion={updateQuestion}
-            removeQuestion={removeQuestion}
-          />
-        ))}
-        {createPortal(
-          <div className="relative top-0">
-            <DragOverlay adjustScale={false} dropAnimation={null}>
-              {activeId ? (
-                <ReportItemEditor
-                  isDragged
-                  data={items[itemIds.indexOf(activeId.toString())]}
-                  updateQuestion={updateQuestion}
-                  removeQuestion={removeQuestion}
-                />
-              ) : null}
-            </DragOverlay>
-          </div>,
-          document.body,
-        )}
+        <AnimatePresence>
+          {items.map((item) => (
+            <ReportItemEditor
+              key={item.id}
+              data={item}
+              updateQuestion={updateQuestion}
+              removeQuestion={removeQuestion}
+              isAnimated={props.isAnimated}
+            />
+          ))}
+        </AnimatePresence>
       </SortableContext>
+
+      {createPortal(
+        <div className="relative top-0">
+          <DragOverlay adjustScale={false} dropAnimation={null}>
+            {activeId ? (
+              <ReportItemEditor
+                isDragged
+                data={items[itemIds.indexOf(activeId.toString())]}
+                updateQuestion={updateQuestion}
+                removeQuestion={removeQuestion}
+              />
+            ) : null}
+          </DragOverlay>
+        </div>,
+        document.body,
+      )}
     </DndContext>
   );
 }

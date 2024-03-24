@@ -12,6 +12,7 @@ type ReportItemEditorProps = {
   isDragged?: boolean;
   removeQuestion: (id: string) => void;
   updateQuestion: (index: number, content: JSONContent) => void;
+  isAnimated?: boolean;
 };
 
 export default function ReportItemEditor(props: ReportItemEditorProps) {
@@ -39,16 +40,21 @@ export default function ReportItemEditor(props: ReportItemEditorProps) {
 
   return (
     <motion.div
-      {...attributes}
       ref={setNodeRef}
       className="-mx-8 flex items-center gap-4"
       style={{
-        opacity: dragOpacity(),
         transform: CSS.Transform.toString(transform),
         transition: transition,
       }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: dragOpacity() }}
+      exit={{ opacity: 0 }}
+      transition={{
+        delay: props.isAnimated ? 0 : data.order * 0.1,
+        duration: 0.3,
+      }}
     >
-      <button {...listeners}>
+      <button {...listeners} {...attributes}>
         <FaGripVertical />
       </button>
       <TipTap
