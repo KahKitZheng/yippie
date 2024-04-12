@@ -1,32 +1,4 @@
-export const reportSubmitData = [
-  {
-    id: "z3pjWB6Utn",
-    order: 0,
-    question: {
-      placeholder: "Template name",
-      data: {
-        type: "doc",
-        content: [
-          {
-            type: "heading",
-            attrs: {
-              level: 1,
-            },
-            content: [
-              {
-                type: "text",
-                text: "Bila template",
-              },
-            ],
-          },
-        ],
-      },
-    },
-    answer: {
-      placeholder: "",
-      data: {},
-    },
-  },
+export const createReport = [
   {
     id: "khAN2qUjMb",
     order: 1,

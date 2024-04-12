@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import Layout from "../../components/Layout";
-import reportsData from "../../fake-data/reports.json";
+import { reports } from "../../fake-data/reports";
 import NewReportPopup from "../../components/Popup/NewReportPopup";
 import ReportCard from "../../components/ReportCard";
 import Button from "../../components/Button/Button";
 import { formatLocalDate } from "../../utils";
+import { Link } from "react-router-dom";
 
 export default function ReportOverviewPage() {
   const [newTemplatePopup, setNewTemplatePopup] = useState(false);
@@ -19,9 +20,10 @@ export default function ReportOverviewPage() {
             <span>nieuw verslag</span>
           </Button>
         </div>
-        {reportsData.map((report, index) => (
-          <div
+        {reports.map((report, index) => (
+          <Link
             key={index}
+            to={`/reports/${report.id}/create`}
             className="sm:-ml-[6.5px] sm:grid sm:grid-cols-[200px_1fr] sm:items-baseline"
           >
             <div className="hidden items-center gap-3 sm:flex">
@@ -29,7 +31,7 @@ export default function ReportOverviewPage() {
               <p>{formatLocalDate(new Date())}</p>
             </div>
             <ReportCard key={index} report={report} />
-          </div>
+          </Link>
         ))}
       </div>
 

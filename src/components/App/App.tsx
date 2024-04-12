@@ -21,7 +21,7 @@ function App() {
       element: <ReportOverViewPage />,
     },
     {
-      path: "/report/:reportId/create",
+      path: "/reports/:reportId/create",
       element: <ReportSubmitPage />,
     },
     {
