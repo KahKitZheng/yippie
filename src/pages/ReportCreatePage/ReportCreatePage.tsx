@@ -1,28 +1,22 @@
 import { useState } from "react";
+import { createReport } from "../../fake-data/create-report";
+import { JSONContent } from "@tiptap/react";
+import { randomId } from "../../utils";
 import Layout from "../../components/Layout";
 import TipTap from "../../components/TipTap";
-// import { reportSubmitData } from "./fake-report-submit-data";
-// import { filledInReportData } from "../../fake-data/filled-in-report";
-import { JSONContent } from "@tiptap/react";
-import { useParams } from "react-router-dom";
-import { reports } from "../../fake-data/reports";
-import { randomId } from "../../utils";
+import ReportStatus from "../../components/ReportStatus";
 
-export default function ReportSubmitPage() {
-  const { reportId } = useParams();
-  const reportById = reports.find((report) => report.id === reportId) || {
-    name: "",
-    data: [],
+export default function ReportCreatePage() {
+  const [report, setReport] = useState({
+    name: "Template name",
+    data: createReport,
     status: "draft",
     manager: "John doe",
     author: "Jane doe",
     created_at: "01-01-1970",
     id: randomId(),
-  };
+  });
 
-  const [report, setReport] = useState(reportById);
-
-  // function to update the tiptap content in reportSubmitData
   const updateTipTapContent = (index: number, content: JSONContent) => {
     const newReport = report?.data?.map((item, i) => {
       if (i === index) {
@@ -37,9 +31,12 @@ export default function ReportSubmitPage() {
   return (
     <Layout includePadding>
       <div className="relative grid gap-8">
-        <div>
-          <h1 className="mb-1 text-3xl font-bold">Template name</h1>
-          <p>John doe, Jane doe</p>
+        <div className="flex items-baseline justify-between gap-4">
+          <div>
+            <h1 className="mb-1 text-3xl font-bold">Template name</h1>
+            <p>John doe, Jane doe</p>
+          </div>
+          <ReportStatus status={report.status} />
         </div>
 
         {report.data?.map((tiptapEditor, index) => (
@@ -53,7 +50,7 @@ export default function ReportSubmitPage() {
               isEditing={false}
             />
             <TipTap
-              isEditing
+              isEditing={report.status === "draft"}
               styleVariant="edit-question"
               content={tiptapEditor.answer.data}
               updateContent={(content: JSONContent) =>
@@ -64,9 +61,11 @@ export default function ReportSubmitPage() {
         ))}
       </div>
 
-      <button className="mx-auto mt-16 flex w-60 items-center justify-center rounded bg-indigo-950 p-3 font-medium text-white">
-        opslaan
-      </button>
+      {report.status === "draft" ? (
+        <button className="mx-auto mt-16 flex w-60 items-center justify-center rounded bg-indigo-950 p-3 font-medium text-white">
+          opslaan
+        </button>
+      ) : null}
     </Layout>
   );
 }
