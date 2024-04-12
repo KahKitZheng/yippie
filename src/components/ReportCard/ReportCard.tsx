@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { formatLocalDate } from "../../utils";
+import ReportStatus from "../ReportStatus";
 
 type ReportCardProps = {
   report: any;
@@ -9,39 +10,6 @@ export default function ReportCard(props: ReportCardProps) {
   const { report } = props;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  function translateStatus() {
-    const status = report.status;
-    switch (status) {
-      case "draft":
-        return "Concept";
-      case "submitted":
-        return "Gepubliceerd";
-      case "approved":
-        return "Goedgekeurd";
-      case "rejected":
-        return "Afgekeurd";
-      default:
-        return "Onbekend";
-    }
-  }
-
-  function statusStyle() {
-    const status = report.status;
-
-    switch (status) {
-      case "draft":
-        return "bg-neutral-300";
-      case "submitted":
-        return "bg-sky-300";
-      case "approved":
-        return "bg-emerald-300";
-      case "rejected":
-        return "bg-rose-300";
-      default:
-        return "bg-neutral-300";
-    }
-  }
 
   function renderRelatedMembers() {
     const numberOfMembers = 2;
@@ -82,10 +50,7 @@ export default function ReportCard(props: ReportCardProps) {
           </small>
           <p className="text-base font-semibold">{report.name}</p>
         </div>
-        <p className="inline-flex items-center gap-2 sm:justify-end">
-          <span className={`${statusStyle()} h-[10px] w-[10px] rounded-full`} />
-          <span className="hidden sm:inline">{translateStatus()}</span>
-        </p>
+        <ReportStatus status={report.status} />
       </div>
       <div className="mt-2 flex items-center gap-6">
         {renderRelatedMembers()}
