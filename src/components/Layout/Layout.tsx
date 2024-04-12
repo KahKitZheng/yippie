@@ -35,7 +35,7 @@ export default function Layout(props: LayoutProps) {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col">
       <NavMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <div className="absolute h-full w-full overflow-hidden">
         <BlobTopLeft className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 fill-sky-200 sm:block sm:-translate-x-1/3 sm:-translate-y-1/3" />
@@ -45,7 +45,7 @@ export default function Layout(props: LayoutProps) {
       </div>
 
       <div
-        className={`xs:w-full relative mx-auto ${includePadding ? "py-12" : ""} h-full px-3 sm:px-8 lg:w-[700px] lg:px-0`}
+        className={`xs:w-full relative mx-auto flex-1 ${includePadding ? "py-12" : ""} h-full px-3 sm:px-8 lg:w-[700px] lg:px-0`}
       >
         {children}
         {isMenuOpen && (
@@ -55,6 +55,6 @@ export default function Layout(props: LayoutProps) {
           />
         )}
       </div>
-    </>
+    </div>
   );
 }
