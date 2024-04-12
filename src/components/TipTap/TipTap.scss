@@ -7,80 +7,84 @@
 }
 
 .tiptap.ProseMirror {
-  * {
-    word-break: break-word;
-    max-width: 100%;
-  }
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
 
   &.prose {
     max-width: 100%;
   }
 
-  &.editing {
-    height: 100%;
-    width: 100%;
+  * {
+    word-break: break-word;
     max-width: 100%;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #e2e8f0;
-    background-color: white;
+    line-height: 1.5;
+  }
 
-    a {
-      text-decoration: underline;
-    }
+  a {
+    text-decoration: underline;
+  }
 
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-    }
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
 
-    h2 {
-      font-size: 1.5rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-size: 1.25rem;
-    }
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.25rem;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-      margin: 0.5rem;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-bottom: 1rem;
 
-    ul li,
-    ol li {
-      p {
-        margin: 0;
-      }
-    }
-
-    hr {
-      margin: 1.5rem 0.75rem;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
+  ul li,
+  ol li {
+    margin: 0.25rem;
+
+    &::marker {
+      color: inherit;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  hr {
+    margin: 1.5rem 0.75rem;
+  }
+  // }
+
   &.preview-question {
-    display: flex;
-    width: 100%;
-    padding: 8px;
-    background-color: white;
-    color: black;
-    border: 1px solid #e2e8f0;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     p {
       font-weight: 600;
-      line-height: 1.5;
-      margin: 0.5rem;
     }
   }
 
@@ -89,7 +93,6 @@
     min-height: 160px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border: 1px solid #e2e8f0;
     outline: none;
 
     p {

@@ -56,11 +56,11 @@ export default function TipTap(props: TipTapProps) {
   return (
     <>
       <EditorContent editor={editor} className="tiptap-editor" />
-      {editor && (
+      {/* {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
           This is the bubble menu
         </BubbleMenu>
-      )}
+      )} */}
     </>
   );
 }
