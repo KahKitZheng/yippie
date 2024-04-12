@@ -53,9 +53,7 @@ export default function ReportItemEditor(props: ReportItemEditorProps) {
       <TipTap
         content={data.question.data}
         updateContent={(content: JSONContent) => updateQuestion(index, content)}
-        placeholder={
-          props?.isFirstItem ? "Template name" : data.question.placeholder
-        }
+        placeholder={data.question.placeholder}
       />
       <button onClick={() => removeQuestion(data.id)}>
         <FaXmark />
