@@ -82,13 +82,14 @@ export default function SortableReportItem(
     >
       <SortableContext items={itemIds} strategy={verticalListSortingStrategy}>
         <AnimatePresence>
-          {items.map((item) => (
+          {items.map((item, index) => (
             <ReportItemEditor
               key={item.id}
               data={item}
               updateQuestion={updateQuestion}
               removeQuestion={removeQuestion}
               isAnimated={props.isAnimated}
+              isFirstItem={index === 0}
             />
           ))}
         </AnimatePresence>

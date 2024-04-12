@@ -13,6 +13,7 @@ type ReportItemEditorProps = {
   removeQuestion: (id: string) => void;
   updateQuestion: (index: number, content: JSONContent) => void;
   isAnimated?: boolean;
+  isFirstItem?: boolean;
 };
 
 export default function ReportItemEditor(props: ReportItemEditorProps) {
@@ -61,7 +62,9 @@ export default function ReportItemEditor(props: ReportItemEditorProps) {
         content={data.question.data}
         updateContent={(content: JSONContent) => updateQuestion(index, content)}
         variant={index === 0 ? "editor-title" : "editor"}
-        placeholder={data.question.placeholder}
+        placeholder={
+          props?.isFirstItem ? "Template name" : data.question.placeholder
+        }
       />
       <button onClick={() => removeQuestion(data.id)}>
         <FaXmark />
