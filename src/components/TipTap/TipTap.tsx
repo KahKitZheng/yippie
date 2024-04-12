@@ -5,7 +5,6 @@ import {
   BubbleMenu,
 } from "@tiptap/react";
 import Link from "@tiptap/extension-link";
-import Document from "@tiptap/extension-document";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
 import "./TipTap.scss";
@@ -16,7 +15,6 @@ type TipTapProps = {
   styleVariant?: "preview-question" | "edit-question" | "";
   placeholder?: string;
   isEditing?: boolean;
-  isEditingTitle?: boolean;
 };
 
 export default function TipTap(props: TipTapProps) {
@@ -25,7 +23,6 @@ export default function TipTap(props: TipTapProps) {
     content,
     updateContent,
     placeholder,
-    isEditingTitle,
     isEditing = true,
   } = props;
 
@@ -33,12 +30,7 @@ export default function TipTap(props: TipTapProps) {
     content: Object.keys(content).length === 0 ? "" : content,
     editable: isEditing,
     extensions: [
-      StarterKit.configure({
-        document: false,
-      }),
-      Document.extend({
-        content: isEditingTitle ? "heading block*" : undefined,
-      }),
+      StarterKit.configure(),
       Placeholder.configure({
         placeholder: placeholder ?? "",
       }),

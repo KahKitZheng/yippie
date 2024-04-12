@@ -15,6 +15,7 @@ export type ReportData = {
 
 export default function ReportTemplateEditPage() {
   const [report, setReport] = useState(baseTemplate);
+  const [templateName, setTemplateName] = useState("");
 
   const itemIds = useMemo(() => {
     return report.sort((a, b) => a.order - b.order).map((item) => item.id);
@@ -53,6 +54,13 @@ export default function ReportTemplateEditPage() {
   return (
     <Layout includePadding>
       <div className="relative grid gap-8">
+        <input
+          type="text"
+          className="rounded-[6px] border border-slate-200 p-4 text-3xl font-bold placeholder:text-slate-400"
+          value={templateName}
+          onChange={(e) => setTemplateName(e.target.value)}
+          placeholder="Template name"
+        />
         <SortableReportItemList
           items={report.sort((a, b) => a.order - b.order)}
           itemIds={itemIds}
