@@ -23,7 +23,7 @@ export default function ReportOverviewPage() {
         {reports.map((report, index) => (
           <Link
             key={index}
-            to={`/reports/${report.id}/create`}
+            to={`/reports/${report.id}`}
             className="sm:-ml-[6.5px] sm:grid sm:grid-cols-[200px_1fr] sm:items-baseline"
           >
             <div className="hidden items-center gap-3 sm:flex">
