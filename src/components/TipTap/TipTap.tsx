@@ -11,19 +11,21 @@ import Placeholder from "@tiptap/extension-placeholder";
 import "./TipTap.scss";
 
 type TipTapProps = {
-  variant: "editor" | "editor-title";
   content: JSONContent;
   updateContent?: (content: JSONContent) => void;
+  styleVariant?: "preview-question" | "edit-question" | "";
   placeholder?: string;
   isEditing?: boolean;
+  isEditingTitle?: boolean;
 };
 
 export default function TipTap(props: TipTapProps) {
   const {
-    variant = "editor",
+    styleVariant,
     content,
     updateContent,
     placeholder,
+    isEditingTitle,
     isEditing = true,
   } = props;
 
@@ -35,7 +37,7 @@ export default function TipTap(props: TipTapProps) {
         document: false,
       }),
       Document.extend({
-        content: variant === "editor-title" ? "heading block*" : undefined,
+        content: isEditingTitle ? "heading block*" : undefined,
       }),
       Placeholder.configure({
         placeholder: placeholder ?? "",
@@ -54,7 +56,7 @@ export default function TipTap(props: TipTapProps) {
     },
     editorProps: {
       attributes: {
-        class: `prose ${isEditing ? "editing" : ""}`,
+        class: `prose ${isEditing ? "editing" : ""} ${styleVariant}`,
       },
     },
   });

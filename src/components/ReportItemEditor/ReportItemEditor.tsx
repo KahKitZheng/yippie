@@ -53,7 +53,7 @@ export default function ReportItemEditor(props: ReportItemEditorProps) {
       <TipTap
         content={data.question.data}
         updateContent={(content: JSONContent) => updateQuestion(index, content)}
-        variant={index === 0 ? "editor-title" : "editor"}
+        isEditingTitle={index === 0}
         placeholder={
           props?.isFirstItem ? "Template name" : data.question.placeholder
         }

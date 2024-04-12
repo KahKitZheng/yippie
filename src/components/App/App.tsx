@@ -4,6 +4,7 @@ import ReportOverViewPage from "../../pages/ReportOverviewPage";
 import ReportTemplateEditPage from "../../pages/ReportTemplateEditPage";
 import TeamsPage from "../../pages/TeamsPage";
 import PageNotFound from "../../pages/404/PageNotFound";
+import ReportSubmitPage from "../../pages/ReportSubmitPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
     {
       path: "/reports",
       element: <ReportOverViewPage />,
+    },
+    {
+      path: "/report/:reportId/create",
+      element: <ReportSubmitPage />,
     },
     {
       path: "/template/:reportId/edit",
