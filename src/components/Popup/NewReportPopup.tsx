@@ -20,7 +20,10 @@ export default function NewReportPopup(props: NewReportPopupProps) {
           <div>
             <div className="mb-2 flex justify-between gap-4 border-b border-b-slate-200 pb-1">
               <p className="font-bold">Team templates</p>
-              <button className="mr-[3px]">
+              <button
+                className="mr-[3px]"
+                onClick={() => navigate("/template/create")}
+              >
                 <FaPlus />
               </button>
             </div>
@@ -32,6 +35,7 @@ export default function NewReportPopup(props: NewReportPopupProps) {
                     id="1"
                     value="1"
                     name="template-scope"
+                    checked
                     className="accent-indigo-400 checked:bg-indigo-400"
                   />
                   <label htmlFor="1">Bila - John Doe</label>
@@ -62,7 +66,10 @@ export default function NewReportPopup(props: NewReportPopupProps) {
           <div>
             <div className="mb-2 flex justify-between gap-4 border-b border-b-slate-200 pb-1">
               <p className="font-bold">Bedrijf templates</p>
-              <button className="mr-[3px]">
+              <button
+                className="mr-[3px]"
+                onClick={() => navigate("/template/create")}
+              >
                 <FaPlus />
               </button>
             </div>

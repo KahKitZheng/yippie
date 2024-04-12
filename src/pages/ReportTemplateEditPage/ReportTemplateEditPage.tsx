@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { JSONContent } from "@tiptap/react";
 import { FaPlus } from "react-icons/fa6";
 import { randomId } from "../../utils";
-import { baseTemplate } from "./fake-report-edit-data";
+import { createReportTemplate } from "../../fake-data/create-report-template";
 
 export type ReportData = {
   id: string;
@@ -14,7 +14,7 @@ export type ReportData = {
 };
 
 export default function ReportTemplateEditPage() {
-  const [report, setReport] = useState(baseTemplate);
+  const [report, setReport] = useState(createReportTemplate);
   const [templateName, setTemplateName] = useState("");
 
   const itemIds = useMemo(() => {

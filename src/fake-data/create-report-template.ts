@@ -1,7 +1,7 @@
 import { type JSONContent } from "@tiptap/react";
-import { ReportData } from "./ReportTemplateEditPage";
+import { ReportData } from "../pages/ReportTemplateEditPage/ReportTemplateEditPage";
 
-export const baseTemplate: ReportData[] = [
+export const createReportTemplate: ReportData[] = [
   {
     id: "khAN2qUjMb",
     order: 0,

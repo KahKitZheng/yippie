@@ -30,7 +30,7 @@ function App() {
       element: <ReportPage />,
     },
     {
-      path: "/template/:reportId/edit",
+      path: "/template/create",
       element: <ReportTemplateEditPage />,
     },
     {
