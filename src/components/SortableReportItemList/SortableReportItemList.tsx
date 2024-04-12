@@ -32,7 +32,6 @@ type SortableReportItemProps = {
   onDragEnd: React.Dispatch<React.SetStateAction<ReportData[]>>;
   updateQuestion: (index: number, content: JSONContent) => void;
   removeQuestion: (id: string) => void;
-  isAnimated: boolean;
 };
 
 export default function SortableReportItem(
@@ -88,7 +87,6 @@ export default function SortableReportItem(
               data={item}
               updateQuestion={updateQuestion}
               removeQuestion={removeQuestion}
-              isAnimated={props.isAnimated}
               isFirstItem={index === 0}
             />
           ))}

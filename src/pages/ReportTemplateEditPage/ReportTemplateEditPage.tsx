@@ -1,10 +1,9 @@
 import Layout from "../../components/Layout";
 import SortableReportItemList from "../../components/SortableReportItemList";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { JSONContent } from "@tiptap/react";
 import { FaPlus } from "react-icons/fa6";
 import { randomId } from "../../utils";
-import { motion } from "framer-motion";
 
 export type ReportData = {
   id: string;
@@ -67,7 +66,6 @@ export default function ReportTemplateEditPage() {
   ];
 
   const [report, setReport] = useState(baseTemplate);
-  const [isAnimated, setIsAnimated] = useState(false);
 
   const itemIds = useMemo(() => {
     return report.sort((a, b) => a.order - b.order).map((item) => item.id);
@@ -103,10 +101,6 @@ export default function ReportTemplateEditPage() {
     setReport(cleanReport);
   }
 
-  useEffect(() => {
-    setIsAnimated(true);
-  }, []);
-
   return (
     <Layout includePadding>
       <div className="relative grid gap-8">
@@ -116,28 +110,19 @@ export default function ReportTemplateEditPage() {
           onDragEnd={setReport}
           updateQuestion={updateQuestion}
           removeQuestion={removeQuestion}
-          isAnimated={isAnimated}
         />
       </div>
-      <motion.button
+      <button
         className="mx-auto mt-8 flex items-center justify-center gap-2 rounded-3xl border border-slate-200 bg-white px-4 py-2"
         onClick={addQuestion}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: (report.length + 1) * 0.1 }}
       >
         <FaPlus />
         vraag toevoegen
-      </motion.button>
+      </button>
 
-      <motion.button
-        className="mx-auto mt-16 flex w-60 items-center justify-center rounded bg-indigo-950 p-3 font-medium text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: (report.length + 2) * 0.1 }}
-      >
+      <button className="mx-auto mt-16 flex w-60 items-center justify-center rounded bg-indigo-950 p-3 font-medium text-white">
         opslaan
-      </motion.button>
+      </button>
     </Layout>
   );
 }

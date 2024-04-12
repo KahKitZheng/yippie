@@ -5,14 +5,12 @@ import { ReportData } from "../../pages/ReportTemplateEditPage/ReportTemplateEdi
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
 import { randomId } from "../../utils";
-import { motion } from "framer-motion";
 
 type ReportItemEditorProps = {
   data: ReportData;
   isDragged?: boolean;
   removeQuestion: (id: string) => void;
   updateQuestion: (index: number, content: JSONContent) => void;
-  isAnimated?: boolean;
   isFirstItem?: boolean;
 };
 
@@ -40,19 +38,13 @@ export default function ReportItemEditor(props: ReportItemEditorProps) {
   }
 
   return (
-    <motion.div
+    <div
       ref={setNodeRef}
       className="-mx-8 flex items-center gap-4"
       style={{
         transform: CSS.Transform.toString(transform),
         transition: transition,
-      }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: dragOpacity() }}
-      exit={{ opacity: 0 }}
-      transition={{
-        delay: props.isAnimated ? 0 : data.order * 0.1,
-        duration: 0.3,
+        opacity: dragOpacity(),
       }}
     >
       <button {...listeners} {...attributes}>
@@ -69,6 +61,6 @@ export default function ReportItemEditor(props: ReportItemEditorProps) {
       <button onClick={() => removeQuestion(data.id)}>
         <FaXmark />
       </button>
-    </motion.div>
+    </div>
   );
 }
