@@ -37,7 +37,7 @@ export default function Layout(props: LayoutProps) {
   return (
     <div className="flex flex-col">
       <NavMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <div className="absolute h-full w-full overflow-hidden">
+      <div className="fixed h-full w-full overflow-hidden">
         <BlobTopLeft className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 fill-sky-200 sm:block sm:-translate-x-1/3 sm:-translate-y-1/3" />
         <BlobTopRight className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2 fill-amber-200 sm:block sm:-translate-y-1/3 sm:translate-x-1/3" />
         <BlobBottomLeft className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 fill-emerald-200 sm:block sm:-translate-x-1/2 sm:translate-y-1/3" />
