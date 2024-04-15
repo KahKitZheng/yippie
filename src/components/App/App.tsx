@@ -6,6 +6,7 @@ import TeamsPage from "../../pages/TeamsPage";
 import PageNotFound from "../../pages/404/PageNotFound";
 import ReportCreatePage from "../../pages/ReportCreatePage";
 import ReportPage from "../../pages/ReportPage";
+import UserContextProvider from "../../context/UserContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,7 +40,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
+  );
 }
 
 export default App;

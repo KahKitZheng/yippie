@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { JSONContent } from "@tiptap/react";
 import { useParams } from "react-router-dom";
 import { reports } from "../../fake-data/reports";
 import Layout from "../../components/Layout";
 import TipTap from "../../components/TipTap";
 import ReportStatus from "../../components/ReportStatus";
+import { UserContext } from "../../context/UserContext";
 import { randomId } from "../../utils";
 import { ReportData } from "../ReportTemplateEditPage/ReportTemplateEditPage";
 
@@ -28,6 +29,7 @@ type Report = {
 
 export default function ReportPage() {
   const { reportId } = useParams();
+  const { user } = useContext(UserContext);
 
   const [report, setReport] = useState<Report | undefined>(
     reports.find((report) => report.id === reportId),
@@ -83,6 +85,38 @@ export default function ReportPage() {
             />
           </div>
         ))}
+
+        {user.role === "admin" && report?.status === "submitted" && (
+          <div className="my-16">
+            {isReviewing ? (
+              <TipTap
+                styleVariant="preview-question"
+                content={note.details.data}
+                isEditing
+              />
+            ) : null}
+
+            <div className="mx-auto flex items-center justify-center gap-4">
+              <button
+                className="flex items-center justify-center rounded bg-indigo-950 px-4 py-2 font-medium text-white"
+                onClick={() => setIsReviewing(true)}
+              >
+                {isReviewing ? "verslag afronden" : "start beoordeling"}
+              </button>
+              {isReviewing && (
+                <>
+                  <span>/</span>
+                  <button
+                    className="flex items-center justify-center"
+                    onClick={() => setIsReviewing(false)}
+                  >
+                    annuleren
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
