@@ -1,9 +1,4 @@
-import {
-  useEditor,
-  EditorContent,
-  JSONContent,
-  BubbleMenu,
-} from "@tiptap/react";
+import { useEditor, EditorContent, JSONContent } from "@tiptap/react";
 import Link from "@tiptap/extension-link";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
@@ -53,14 +48,5 @@ export default function TipTap(props: TipTapProps) {
     },
   });
 
-  return (
-    <>
-      <EditorContent editor={editor} className="tiptap-editor" />
-      {/* {editor && (
-        <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-          This is the bubble menu
-        </BubbleMenu>
-      )} */}
-    </>
-  );
+  return <EditorContent editor={editor} className="tiptap-editor" />;
 }

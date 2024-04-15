@@ -5,13 +5,41 @@ import { reports } from "../../fake-data/reports";
 import Layout from "../../components/Layout";
 import TipTap from "../../components/TipTap";
 import ReportStatus from "../../components/ReportStatus";
+import { randomId } from "../../utils";
+import { ReportData } from "../ReportTemplateEditPage/ReportTemplateEditPage";
+
+type NoteData = {
+  id: string;
+  details: {
+    placeholder: string;
+    data: JSONContent;
+  };
+};
+
+type Report = {
+  author: string;
+  created_at: string;
+  data: ReportData[] | undefined;
+  id: string;
+  manager: string;
+  name: string;
+  status: string;
+};
 
 export default function ReportPage() {
   const { reportId } = useParams();
 
-  const [report, setReport] = useState(
+  const [report, setReport] = useState<Report | undefined>(
     reports.find((report) => report.id === reportId),
   );
+  const [note, setNote] = useState({
+    id: randomId(),
+    details: {
+      placeholder: "",
+      data: {} as JSONContent,
+    },
+  } as NoteData);
+  const [isReviewing, setIsReviewing] = useState(false);
 
   const updateTipTapContent = (index: number, content: JSONContent) => {
     const newReport = report?.data?.map((item, i) => {
@@ -21,7 +49,7 @@ export default function ReportPage() {
       return item;
     });
 
-    setReport({ ...report, data: newReport });
+    setReport({ ...report, data: newReport } as Report);
   };
 
   return (
