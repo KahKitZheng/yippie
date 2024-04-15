@@ -93,6 +93,12 @@ export default function ReportPage() {
                 styleVariant="preview-question"
                 content={note.details.data}
                 isEditing
+                updateContent={(content: JSONContent) =>
+                  setNote({
+                    ...note,
+                    details: { ...note.details, data: content },
+                  })
+                }
               />
             ) : null}
 
